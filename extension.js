@@ -34,6 +34,10 @@ function _showRocketChat() {
     }
     
   }
+
+  if (app.get_state() === 2) {
+    app.activate();
+  }
 }
 
 function init() {
