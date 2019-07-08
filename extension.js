@@ -11,6 +11,11 @@ var app = Shell.AppSystem.get_default().lookup_app("rocket-chat.desktop");
 var snap = false;
 if (app === null || app === undefined) {
   app = Shell.AppSystem.get_default().lookup_app("rocketchat-desktop_rocketchat-desktop.desktop");
+  if (app === null || app === undefined) {
+    var err_msg = "Could not load Rocket Chat Desktop App";
+    Main.notify(err_msg);
+    throw new Error(err_msg);
+  }
   snap = true;
 }
 
